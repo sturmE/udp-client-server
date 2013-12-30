@@ -164,53 +164,29 @@ src/client/main.cpp.s:
 	$(MAKE) -f CMakeFiles/bin/client.dir/build.make CMakeFiles/bin/client.dir/src/client/main.cpp.s
 .PHONY : src/client/main.cpp.s
 
-src/client/network.o: src/client/network.cpp.o
-.PHONY : src/client/network.o
+src/common/network/address.o: src/common/network/address.cpp.o
+.PHONY : src/common/network/address.o
 
 # target to build an object file
-src/client/network.cpp.o:
-	$(MAKE) -f CMakeFiles/bin/client.dir/build.make CMakeFiles/bin/client.dir/src/client/network.cpp.o
-.PHONY : src/client/network.cpp.o
+src/common/network/address.cpp.o:
+	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/address.cpp.o
+.PHONY : src/common/network/address.cpp.o
 
-src/client/network.i: src/client/network.cpp.i
-.PHONY : src/client/network.i
-
-# target to preprocess a source file
-src/client/network.cpp.i:
-	$(MAKE) -f CMakeFiles/bin/client.dir/build.make CMakeFiles/bin/client.dir/src/client/network.cpp.i
-.PHONY : src/client/network.cpp.i
-
-src/client/network.s: src/client/network.cpp.s
-.PHONY : src/client/network.s
-
-# target to generate assembly for a file
-src/client/network.cpp.s:
-	$(MAKE) -f CMakeFiles/bin/client.dir/build.make CMakeFiles/bin/client.dir/src/client/network.cpp.s
-.PHONY : src/client/network.cpp.s
-
-src/client/socket.o: src/client/socket.cpp.o
-.PHONY : src/client/socket.o
-
-# target to build an object file
-src/client/socket.cpp.o:
-	$(MAKE) -f CMakeFiles/bin/client.dir/build.make CMakeFiles/bin/client.dir/src/client/socket.cpp.o
-.PHONY : src/client/socket.cpp.o
-
-src/client/socket.i: src/client/socket.cpp.i
-.PHONY : src/client/socket.i
+src/common/network/address.i: src/common/network/address.cpp.i
+.PHONY : src/common/network/address.i
 
 # target to preprocess a source file
-src/client/socket.cpp.i:
-	$(MAKE) -f CMakeFiles/bin/client.dir/build.make CMakeFiles/bin/client.dir/src/client/socket.cpp.i
-.PHONY : src/client/socket.cpp.i
+src/common/network/address.cpp.i:
+	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/address.cpp.i
+.PHONY : src/common/network/address.cpp.i
 
-src/client/socket.s: src/client/socket.cpp.s
-.PHONY : src/client/socket.s
+src/common/network/address.s: src/common/network/address.cpp.s
+.PHONY : src/common/network/address.s
 
 # target to generate assembly for a file
-src/client/socket.cpp.s:
-	$(MAKE) -f CMakeFiles/bin/client.dir/build.make CMakeFiles/bin/client.dir/src/client/socket.cpp.s
-.PHONY : src/client/socket.cpp.s
+src/common/network/address.cpp.s:
+	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/address.cpp.s
+.PHONY : src/common/network/address.cpp.s
 
 src/common/network/net_socket.o: src/common/network/net_socket.cpp.o
 .PHONY : src/common/network/net_socket.o
@@ -235,6 +211,30 @@ src/common/network/net_socket.s: src/common/network/net_socket.cpp.s
 src/common/network/net_socket.cpp.s:
 	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/net_socket.cpp.s
 .PHONY : src/common/network/net_socket.cpp.s
+
+src/common/network/socket.o: src/common/network/socket.cpp.o
+.PHONY : src/common/network/socket.o
+
+# target to build an object file
+src/common/network/socket.cpp.o:
+	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/socket.cpp.o
+.PHONY : src/common/network/socket.cpp.o
+
+src/common/network/socket.i: src/common/network/socket.cpp.i
+.PHONY : src/common/network/socket.i
+
+# target to preprocess a source file
+src/common/network/socket.cpp.i:
+	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/socket.cpp.i
+.PHONY : src/common/network/socket.cpp.i
+
+src/common/network/socket.s: src/common/network/socket.cpp.s
+.PHONY : src/common/network/socket.s
+
+# target to generate assembly for a file
+src/common/network/socket.cpp.s:
+	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/socket.cpp.s
+.PHONY : src/common/network/socket.cpp.s
 
 src/server/main.o: src/server/main.cpp.o
 .PHONY : src/server/main.o
@@ -298,15 +298,15 @@ help:
 	@echo "... src/client/main.o"
 	@echo "... src/client/main.i"
 	@echo "... src/client/main.s"
-	@echo "... src/client/network.o"
-	@echo "... src/client/network.i"
-	@echo "... src/client/network.s"
-	@echo "... src/client/socket.o"
-	@echo "... src/client/socket.i"
-	@echo "... src/client/socket.s"
+	@echo "... src/common/network/address.o"
+	@echo "... src/common/network/address.i"
+	@echo "... src/common/network/address.s"
 	@echo "... src/common/network/net_socket.o"
 	@echo "... src/common/network/net_socket.i"
 	@echo "... src/common/network/net_socket.s"
+	@echo "... src/common/network/socket.o"
+	@echo "... src/common/network/socket.i"
+	@echo "... src/common/network/socket.s"
 	@echo "... src/server/main.o"
 	@echo "... src/server/main.i"
 	@echo "... src/server/main.s"

@@ -1,10 +1,25 @@
 #include "../common/network/net_socket.h"
+#include "../common/network/socket.h"
 #include "../common/network_messages.h"
 #include <string>
 static char SERVER_ADDRESS[] = "127.0.0.1";
 const unsigned short SERVER_PORT = 7531;
 
 int main(int argc, char** argv) {
+    Socket socket;
+    if( !socket.open(0) ) return 0;
+
+    
+    char data[] = "Holla";
+    if( !socket.send(Address(127, 0, 0, 1, SERVER_PORT), data, sizeof(data)) ) {
+        std::cout << "that didnt work" << std::endl;
+    }
+
+
+/*
+
+
+
     NetSocket socket;
     socket.setupSocket(SERVER_PORT);
 
@@ -37,7 +52,7 @@ int main(int argc, char** argv) {
         }
 
         socket.sendTo((char*)&msg, sizeof(msg), dest);
-    }
+    }*/
 
     return 0;
 }
