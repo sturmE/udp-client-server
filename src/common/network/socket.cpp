@@ -1,7 +1,7 @@
 #include "socket.h"
 
 Socket::Socket() {
-    _handle = 0;
+    _handle = -1;    
 }
 
 Socket::~Socket() {
@@ -60,10 +60,11 @@ void Socket::close() {
 #elif PLATFORM == PLATFORM_WINDOWS
     closesocket( _handle );
 #endif
+    _handle = -1;
 }
 
 bool Socket::isOpen() const {
-
+    return _handle != -1;
 }
 
 bool Socket::send( const Address & destination, const void * data, int size ) {
