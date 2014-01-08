@@ -5,7 +5,8 @@ SET(CMAKE_CXX_FLAGS "-std=c++0x")
 
 #### Common
 file(GLOB NETWORK_SRCS src/common/network/*.cpp)
-add_library(common STATIC ${NETWORK_SRCS})
+file(GLOB COMMON_SRCS src/common/*.cpp)
+add_library(common STATIC ${NETWORK_SRCS} ${COMMON_SRCS})
 
 #### Build client
 
