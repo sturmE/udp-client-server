@@ -1,9 +1,13 @@
 #pragma once
 
+#include <string>
+#include <sstream>
+
 class Address {
 private:
     unsigned int _address;
     unsigned short _port;
+    std::string _addressString;
 public:
     Address();
     Address( unsigned char a, unsigned char b, unsigned char c, unsigned char d, unsigned short port );
@@ -16,4 +20,5 @@ public:
     unsigned short getPort() const;
     bool operator == ( const Address & other ) const;
     bool operator != ( const Address & other ) const;
+    std::string toString() const;
 };

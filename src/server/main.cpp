@@ -1,15 +1,47 @@
-#include "network.h"
-#include <unistd.h>
+#include "../common/network/socket.h"
+#include <iostream>
 using namespace std;
 
+const unsigned short SERVER_PORT = 7531;
+const unsigned int MAX_PK_SIZE = 256;
+const int PROTOCOL_ID = 1231231;
+
+struct MsgHeader {
+    int protocolId;    
+};
 
 int main(int argc, char** argv) {
-    cout << "Go\n";
-    Network network;
-    network.setupNetwork();
-    while(network.isOnline()) {
-        sleep(1000);
+    Socket socket;
+    if(!socket.open(SERVER_PORT)) {
+        return 0;
     }
-    cout << "Done\n";
-    return 0;
+
+    if(!socket.setBlocking(false)) {
+        return 0;
+    }
+
+    Address sender;
+    unsigned char data[MAX_PK_SIZE];
+    while(true) {
+        int bytesRead = socket.receive(sender, data, MAX_PK_SIZE);
+        
+        if(bytesRead <= 0) {
+            cout << "bytesRead <= 0" << std::endl;
+            continue;
+        }
+        
+        if(bytesRead < sizeof(MsgHeader)) {
+            cout << "bytesRead <= sizeof(MsgHeader)" << std::endl;
+            continue;   
+        }
+
+        MsgHeader* header = (MsgHeader*)data;
+        if(header->protocolId != PROTOCOL_ID) {
+            cout << "bad protocolId" << std::endl;
+            continue;      
+        }
+
+        cout << sender.toString() << std::endl;        
+    }
+
 }

@@ -11,11 +11,19 @@ Socket::~Socket() {
 bool Socket::setBlocking(bool blocking) {
  #if PLATFORM == PLATFORM_MAC || PLATFORM == PLATFORM_UNIX
 
-    int setting = blocking ? 1 : 0;
-    if ( fcntl( _handle, F_SETFL, O_NONBLOCK, setting ) == -1 ) {
-        //printf( "failed to set non-blocking socket\n" );
+    int opts;
+
+    opts = fcntl(_handle,F_GETFL);
+    if (opts < 0) {        
         return false;
     }
+
+    blocking ? opts = opts & (~O_NONBLOCK) : opts = (opts | O_NONBLOCK);
+    if (fcntl(_handle,F_SETFL,opts) < 0) {    
+        return false;
+    }
+    
+    return true;
 
 #elif PLATFORM == PLATFORM_WINDOWS
 

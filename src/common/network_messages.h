@@ -9,6 +9,7 @@
 
 
 struct MSG_GENERIC_DATA {
+    int protocolId;
     int16 type;
 };
 

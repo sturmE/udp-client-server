@@ -30,22 +30,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/2.8.12.1/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/2.8.11.2/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/2.8.12.1/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/2.8.11.2/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.12.1/bin/ccmake
+CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.11.2/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/eugene.sturm/projects/boom
+CMAKE_SOURCE_DIR = /Users/sturm/projects/udp-client-server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/eugene.sturm/projects/boom
+CMAKE_BINARY_DIR = /Users/sturm/projects/udp-client-server
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /Users/eugene.sturm/projects/boom
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/2.8.12.1/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/2.8.11.2/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -63,7 +63,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/Cellar/cmake/2.8.12.1/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/2.8.11.2/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/eugene.sturm/projects/boom/CMakeFiles /Users/eugene.sturm/projects/boom/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sturm/projects/udp-client-server/CMakeFiles /Users/sturm/projects/udp-client-server/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/eugene.sturm/projects/boom/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sturm/projects/udp-client-server/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -188,30 +188,6 @@ src/common/network/address.cpp.s:
 	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/address.cpp.s
 .PHONY : src/common/network/address.cpp.s
 
-src/common/network/net_socket.o: src/common/network/net_socket.cpp.o
-.PHONY : src/common/network/net_socket.o
-
-# target to build an object file
-src/common/network/net_socket.cpp.o:
-	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/net_socket.cpp.o
-.PHONY : src/common/network/net_socket.cpp.o
-
-src/common/network/net_socket.i: src/common/network/net_socket.cpp.i
-.PHONY : src/common/network/net_socket.i
-
-# target to preprocess a source file
-src/common/network/net_socket.cpp.i:
-	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/net_socket.cpp.i
-.PHONY : src/common/network/net_socket.cpp.i
-
-src/common/network/net_socket.s: src/common/network/net_socket.cpp.s
-.PHONY : src/common/network/net_socket.s
-
-# target to generate assembly for a file
-src/common/network/net_socket.cpp.s:
-	$(MAKE) -f CMakeFiles/common.dir/build.make CMakeFiles/common.dir/src/common/network/net_socket.cpp.s
-.PHONY : src/common/network/net_socket.cpp.s
-
 src/common/network/socket.o: src/common/network/socket.cpp.o
 .PHONY : src/common/network/socket.o
 
@@ -260,30 +236,6 @@ src/server/main.cpp.s:
 	$(MAKE) -f CMakeFiles/bin/server.dir/build.make CMakeFiles/bin/server.dir/src/server/main.cpp.s
 .PHONY : src/server/main.cpp.s
 
-src/server/network.o: src/server/network.cpp.o
-.PHONY : src/server/network.o
-
-# target to build an object file
-src/server/network.cpp.o:
-	$(MAKE) -f CMakeFiles/bin/server.dir/build.make CMakeFiles/bin/server.dir/src/server/network.cpp.o
-.PHONY : src/server/network.cpp.o
-
-src/server/network.i: src/server/network.cpp.i
-.PHONY : src/server/network.i
-
-# target to preprocess a source file
-src/server/network.cpp.i:
-	$(MAKE) -f CMakeFiles/bin/server.dir/build.make CMakeFiles/bin/server.dir/src/server/network.cpp.i
-.PHONY : src/server/network.cpp.i
-
-src/server/network.s: src/server/network.cpp.s
-.PHONY : src/server/network.s
-
-# target to generate assembly for a file
-src/server/network.cpp.s:
-	$(MAKE) -f CMakeFiles/bin/server.dir/build.make CMakeFiles/bin/server.dir/src/server/network.cpp.s
-.PHONY : src/server/network.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -301,18 +253,12 @@ help:
 	@echo "... src/common/network/address.o"
 	@echo "... src/common/network/address.i"
 	@echo "... src/common/network/address.s"
-	@echo "... src/common/network/net_socket.o"
-	@echo "... src/common/network/net_socket.i"
-	@echo "... src/common/network/net_socket.s"
 	@echo "... src/common/network/socket.o"
 	@echo "... src/common/network/socket.i"
 	@echo "... src/common/network/socket.s"
 	@echo "... src/server/main.o"
 	@echo "... src/server/main.i"
 	@echo "... src/server/main.s"
-	@echo "... src/server/network.o"
-	@echo "... src/server/network.i"
-	@echo "... src/server/network.s"
 .PHONY : help
 
 
