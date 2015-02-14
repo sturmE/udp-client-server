@@ -3,7 +3,7 @@
 #include "address.h"
   
 
-#define MAX_PACKET_SIZE 256
+#define MAX_PACKET_SIZE 1024
 
 
 #define PLATFORM_WINDOWS  1
@@ -37,15 +37,19 @@
 class Socket {
 private:
     int _handle;
+    bool _isBlocking;
 public:
     Socket();
     ~Socket();
 
     ///    Port == 0 if dont care
-    bool open( unsigned short port );
+    bool open(unsigned short port);
     void close();
+    bool setTimeout(int ms);
     bool setBlocking(bool blocking);
+    bool setBroadcast(bool broadcast);
+    bool isBlocking() const;
     bool isOpen() const;
-    bool send( const Address & destination, const void * data, int size );
-    int receive( Address & sender, void * data, int size );
+    bool send(const Address& dest, const void* buffer, int size);
+    int receive(Address & sender, void * data, int size);
 };

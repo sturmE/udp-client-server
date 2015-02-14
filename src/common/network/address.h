@@ -1,23 +1,27 @@
 #pragma once
 
+#include <stdint.h>
+#include <assert.h>
 #include <string>
+#include <vector>
 #include <sstream>
 
 class Address {
 private:
-    unsigned int _address;
-    unsigned short _port;
+    uint32_t _address;
+    uint16_t _port;
     std::string _addressString;
 public:
     Address();
-    Address( unsigned char a, unsigned char b, unsigned char c, unsigned char d, unsigned short port );
-    Address( unsigned int address, unsigned short port );
-    unsigned int getAddress() const;    
-    unsigned char getA() const;
-    unsigned char getB() const;
-    unsigned char getC() const;
-    unsigned char getD() const;
-    unsigned short getPort() const;
+    Address(std::string address, uint16_t port);
+    Address(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint16_t port );
+    Address(uint32_t address, uint16_t port );
+    uint32_t getAddress() const;    
+    uint8_t getA() const;
+    uint8_t getB() const;
+    uint8_t getC() const;
+    uint8_t getD() const;
+    uint16_t getPort() const;
     bool operator == ( const Address & other ) const;
     bool operator != ( const Address & other ) const;
     std::string toString() const;

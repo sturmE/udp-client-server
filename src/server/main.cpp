@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
         return 0;
     }
 
-    if(!socket.setBlocking(false)) {
+    if(!socket.setBlocking(true)) {
         return 0;
     }
 
